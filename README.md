@@ -1,8 +1,10 @@
 # ReactNode project
-This reposistory follows a project running a React.js frontend, Node.js backend and MongoDB database.
+A project running a React.js frontend, Node.js backend and MongoDB database, with a fully functioning authentication system.
 
-## Components
-*explain project structure here*
+## Requirements
+- npm
+- MongoDB
+    - https://www.mongodb.com/try/download/community
 
 ## Getting started
 
@@ -38,3 +40,8 @@ Open [http://localhost:3000](http://localhost:3000) to view frontend in the brow
 ## Acknowledgements
 
  - [Mastering Authentication By Code With Yousaf](https://www.youtube.com/watch?v=a0OteSViYpg&t=5s)
+
+## Developments
+- Refactored UX logic
+- Added configuration good practices
+- Randomised token for authentication (WIP)
