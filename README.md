@@ -20,6 +20,9 @@ git clone https://github.com/leesean5150/ReactNodeProject.git
 npm install
 ```
 
+### Setting Up Configuration
+Create a new .env file for the server folder using the .env.sample as a tempalte. For email reset link, navigate to Google Account settings, search for app passwords and create a new app. The password is the password to be put into the .env file.
+
 ### Run Client
 
 ```shell
