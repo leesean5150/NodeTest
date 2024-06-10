@@ -1,4 +1,4 @@
-# ReactNode project
+# ReactNodeProject
 A project running a React.js frontend, Node.js backend and MongoDB database, with a fully functioning authentication system.
 
 ## Requirements
