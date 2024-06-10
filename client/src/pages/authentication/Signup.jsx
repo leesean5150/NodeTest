@@ -3,7 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-import "./signup.css";
+import "./Signup.css";
+import env_config from "../../api/env_config";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -15,13 +16,13 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/auth/signup", {
+      .post(env_config.env + "auth/signup", {
         username,
         email,
         password,
       })
       .then((response) => {
-        if (response.data.status === true) {
+        if (response.data.status) {
           navigate("/login");
         }
       })
@@ -54,13 +55,15 @@ const Signup = () => {
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          placeholder="******"
+          placeholder="********"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <button type="submit">Sign Up</button>
-        <p>Have an account?</p> <Link to="/login">Login</Link>
+        <p>
+          Have an account? <Link to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );

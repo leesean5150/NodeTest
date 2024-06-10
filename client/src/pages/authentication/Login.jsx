@@ -1,26 +1,28 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-import "./signup.css";
+import "./Signup.css";
+import env_config from "../../api/env_config";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
+  axios.defaults.withCredentials = true;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/auth/login", {
-        email,
+      .post(env_config.env + "auth/login", {
+        username,
         password,
       })
       .then((response) => {
         if (response.data.status) {
-          navigate("/home");
+          navigate("/");
         }
       })
       .catch((error) => {
@@ -32,25 +34,29 @@ const Login = () => {
     <div className="sign-up-container">
       <form className="sign-up-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="username">Username:</label>
         <input
-          type="email"
-          autoComplete="off"
-          placeholder="Email"
+          type="text"
+          placeholder="Username"
           onChange={(e) => {
-            setEmail(e.target.value);
+            setUsername(e.target.value);
           }}
         />
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          placeholder="******"
+          placeholder="********"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <button type="submit">Login</button>
-        <p>Don't have an account?</p> <Link to="/signup">Sign Up</Link>
+        <br></br>
+        <br></br>
+        <Link to="/forgotPassword">Forgot password?</Link>
+        <p>
+          Don't have an account?<Link to="/signup"> Sign Up</Link>
+        </p>
       </form>
     </div>
   );
