@@ -5,29 +5,33 @@ import env_config from "../../api/env_config";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios
       .post(env_config.env + "auth/forgot-password", {
         email,
       })
       .then((response) => {
         if (response.data.status) {
+          setLoading(false);
           alert("check your email for the password reset link");
           navigate("/login");
         }
       })
       .catch((error) => {
+        setLoading(false);
         console.log(error);
       });
   };
 
   return (
     <div className="sign-up-container">
-      <form className="sign-up-form" onSubmit={handleSubmit}>
+      {!loading && <form className="sign-up-form" onSubmit={handleSubmit}>
         <h2>Forgot Password</h2>
         <input
           type="email"
@@ -38,7 +42,8 @@ const ForgotPassword = () => {
           }}
         />
         <button type="submit">Send reset link</button>
-      </form>
+      </form>}
+      {loading && <div className="loader"></div>}
     </div>
   );
 };
