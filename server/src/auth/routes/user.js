@@ -1,5 +1,4 @@
 import express from "express";
-import nodeMailer from "nodemailer";
 
 import UserController from "../controllers/UserController.js";
 

@@ -1,5 +1,6 @@
 import express from "express";
 import productsController from "../controllers/Products.Controller.js";
+
 const router = express.Router();
 
 router.get("/", productsController.index);
