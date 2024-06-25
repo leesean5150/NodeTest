@@ -15,7 +15,7 @@ const Dashboard = () => {
       }
       setRole(response.data.role);
     });
-  }, []);
+  }, [navigate]);
 
   const handleLogout = () => {
     axios
