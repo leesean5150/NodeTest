@@ -15,7 +15,7 @@ const Dashboard = () => {
       }
       setRole(response.data.role);
     });
-  }, []);
+  }, [navigate]);
 
   const handleLogout = () => {
     axios
@@ -61,28 +61,14 @@ const Dashboard = () => {
             width: 120,
             height: 120,
             margin: 20,
-            background: role === "trainer" ? "#8055DC" : "#D9D9D9",
+            background: role === "user" ? "#8055DC" : "#D9D9D9",
             borderRadius: 20,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          Trainer
-        </div>
-        <div
-          style={{
-            width: 120,
-            height: 120,
-            margin: 20,
-            background: role === "client" ? "#8055DC" : "#D9D9D9",
-            borderRadius: 20,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          Client
+          User
         </div>
       </div>
       <button onClick={handleLogout}>Logout</button>
