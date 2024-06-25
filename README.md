@@ -1,10 +1,11 @@
 # ReactNodeProject
-A project running a React.js frontend, Node.js backend and MongoDB database, with a fully functioning authentication system.
+A project running a React.js frontend, dockerized Node.js backend and dockerized MongoDB database, with a fully functioning authentication system.
 
 ## Requirements
-- npm
+- Docker
 - MongoDB
     - https://www.mongodb.com/try/download/community
+- npm
 
 ## Getting started
 
@@ -31,20 +32,18 @@ npm start
 ```
 
 ### Run Server
-
+#### First initialisation
 ```shell
 cd server
-npm start
+docker compose up --build
+```
+#### Subsequent initialisation
+```shell
+cd server
+docker compose up
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view frontend in the browser.
 
-
-## Acknowledgements
-
- - [Mastering Authentication By Code With Yousaf](https://www.youtube.com/watch?v=a0OteSViYpg&t=5s)
-
-## Developments
-- Refactored UX logic
-- Added configuration good practices
-- Randomised token for authentication (WIP)
+## Development TODOs
+- Randomised token for authentication
